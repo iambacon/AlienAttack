@@ -1,25 +1,29 @@
-﻿jQuery(document).ready(function() {
-
-    $('.js-button').click(function() {
-        var email = $('.js-email').val(),
-            getMovesUri = 'api/moves',
-            submitPositionUri = 'api/moves/position/submit',
-            currentPosition = {
-                x: 0,
-                y: 1
-            },
-            params = {
-            email: email,
-            'currentPosition': currentPosition
+﻿jQuery(document).ready(function () {
+    var getMovesUri = 'api/moves',
+        submitPositionUri = 'api/moves/position/submit',
+        currentPosition = {
+            x: 0,
+            y: 1
         };
+    
+    $('.js-button').click(function (e) {
+        var email = $('.js-email').val(),
+            params = {
+                email: email,
+                'currentPosition': currentPosition
+            };
 
+        if (email === '') {
+            return;
+        }
+        
         // Get coordinates
-        ajaxGet(getMovesUri, params, function(response) {
+        ajaxGet(getMovesUri, params, function (response) {
             var positions = response,
                 finalPosition = response[response.length - 1];
 
             // Move probe on grid
-            moveProbe(positions, function() {                
+            moveProbe(positions, function () {
                 params = {
                     email: email,
                     position: {
@@ -29,7 +33,7 @@
                 };
 
                 // Send final position and display message.
-                ajaxGet(submitPositionUri, params, function(response) {
+                ajaxGet(submitPositionUri, params, function (response) {
                     $('.js-message').html(response);
                 });
             });
@@ -48,7 +52,7 @@
                     newPosition,
                     $item = $('[data-x=' + x + '][data-y=' + y + ']');
 
-                setTimeout(function() {
+                setTimeout(function () {
                     newPosition = $item.position();
 
                     $('.probe').transform({
@@ -69,7 +73,7 @@
         Function transform
         Set CSS3 transform rotate property.
         */
-        $.fn.transform = function(properties, options) {
+        $.fn.transform = function (properties, options) {
             properties['-webkit-transform'] = 'rotate( ' + options.direction + 'deg)';
             properties['-moz-transform'] = 'rotate( ' + options.direction + 'deg)';
             properties['-o-transform'] = 'rotate( ' + options.direction + 'deg)';
@@ -88,9 +92,9 @@
                 type: 'GET',
                 data: data,
                 contentType: "application/json;charset=utf-8"
-            }).done(function(response) {
+            }).done(function (response) {
                 callback(response);
-            }).fail(function(response) {
+            }).fail(function (response) {
                 console.log('error: ' + response);
             });
         }
