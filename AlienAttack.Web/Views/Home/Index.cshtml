@@ -1,0 +1,40 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Alien Attack</title>
+    <link href="~/Content/css/styles.css" rel="stylesheet" />
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+    <script src="/Scripts/app/app.js"></script>
+</head>
+<body>
+    <h1>Alien Attack</h1>
+    <p>Plot the movements of the alien craft and find out its location.</p>
+    <p>Enter your email address and hit start!</p>
+    <label for="email">Email address:</label>
+    <input type="email" name="email" class="js-email" value="df@df.com" />
+    <button type="button" class="js-button">Start</button>
+    <p class="js-message message"></p>
+    <section>
+        <h1>Grid</h1>
+        <div class="grid">
+            @for (int i = 9; i >= 0; i--)
+            {
+                <div class="row">
+                    @for (int j = 0; j < 10; j++)
+                    {
+                        <div class="column" data-x="@j" data-y="@i"></div>
+                    }
+                </div>
+            }
+            <div class="probe"></div>
+        </div>
+    </section>
+</body>
+</html>

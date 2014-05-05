@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlienAttack", "AlienAttack\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlienAttack.Tests", "AlienAttack.Tests\AlienAttack.Tests.csproj", "{637B460B-BE43-4495-93A2-8AA397FF494B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{863E2DCD-637B-4BF5-9CE6-17230A948A4B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlienAttack.Web", "AlienAttack.Web\AlienAttack.Web.csproj", "{54AC4B3A-4ECB-47FE-B9E9-EC7014F629AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{637B460B-BE43-4495-93A2-8AA397FF494B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{637B460B-BE43-4495-93A2-8AA397FF494B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{637B460B-BE43-4495-93A2-8AA397FF494B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{863E2DCD-637B-4BF5-9CE6-17230A948A4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{863E2DCD-637B-4BF5-9CE6-17230A948A4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{863E2DCD-637B-4BF5-9CE6-17230A948A4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{863E2DCD-637B-4BF5-9CE6-17230A948A4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54AC4B3A-4ECB-47FE-B9E9-EC7014F629AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54AC4B3A-4ECB-47FE-B9E9-EC7014F629AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54AC4B3A-4ECB-47FE-B9E9-EC7014F629AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54AC4B3A-4ECB-47FE-B9E9-EC7014F629AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

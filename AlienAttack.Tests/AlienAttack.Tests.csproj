@@ -64,10 +64,6 @@
       <Project>{1B43E533-0EEE-4FBE-9D98-3931D22A2F36}</Project>
       <Name>AlienAttack</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ConsoleApplication1\ConsoleApplication1.csproj">
-      <Project>{863E2DCD-637B-4BF5-9CE6-17230A948A4B}</Project>
-      <Name>ConsoleApplication1</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

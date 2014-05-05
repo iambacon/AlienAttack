@@ -35,10 +35,16 @@ namespace AlienAttack
         void Forward();
 
         /// <summary>
+        /// Plots the move.
+        /// </summary>
+        /// <param name="move">The move.</param>
+        void PlotMove(string move);
+
+        /// <summary>
         /// Plots the moves.
         /// </summary>
         /// <param name="moves">The moves.</param>
-        void PlotMoves(List<string> moves);
+        List<Position> PlotMoves(List<string> moves);
 
         /// <summary>
         /// Turns left.

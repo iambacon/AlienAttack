@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Alien Attack</title>
+    <link href="~/Content/css/styles.css" rel="stylesheet" />
+    
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+    <script src="~/Content/js/alienAttack.js"></script>
+</head>
+<body>
+    <h1>Alien Attack</h1>
+    <p>Plot the movements of the alien craft and find out its location.</p>
+    <button type="button" class="submitBtn">Start</button>
+    <section>
+        <h1>Grid</h1>
+        <div class="grid">
+            @for (int i = 0; i < 10; i++)
+            {
+                <div class="row">
+                    @for (int j = 0; j < 10; j++)
+                    {
+                        <div class="column"></div>
+                    }
+                </div>
+            }
+            <div class="probe"></div>
+        </div>
+    </section>
+</body>
+</html>

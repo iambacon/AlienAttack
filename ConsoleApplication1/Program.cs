@@ -20,18 +20,22 @@ namespace ConsoleApplication1
             var getUri = string.Format(baseUri, "api/spaceprobe/getdata/{0}");
             var submitUri = String.Format(baseUri, "api/spaceprobe/submitdata/{0}/{1}/{2}");
             var json = string.Empty;
-            
+
             // Get the directions
             var uri = string.Format(getUri, email);
             json = GetJson(uri);
-            
+
             var data = JObject.Parse(json)["Directions"];
             var directions = JsonConvert.DeserializeObject<List<string>>(data.ToString());
-            
+
             IPlotter plotter = new Plotter();
 
             // Set known (second move) position; row 1, column 0
-            plotter.Position = new Coordinate(0, 1);
+            plotter.Position = new Coordinate
+            {
+                x = 0,
+                y = 1
+            };
 
             // Work out orienation from first move and known (second move) position
             plotter.CalculateOrientation(directions.First());
@@ -48,9 +52,9 @@ namespace ConsoleApplication1
                 // Send position and get results.
                 uri = string.Format(submitUri, email, plotter.Position.x, plotter.Position.y);
                 json = GetJson(uri);
-                
+
                 var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
-                
+
                 Console.WriteLine("Status code: {0}  Message: {1}", result["StatusCode"], result["Message"]);
             }
             catch (Exception ex)

@@ -1,0 +1,37 @@
+﻿.grid {
+    height: 520px;
+    width: 520px;
+    position: relative;
+}
+
+.row {
+    overflow: hidden;
+}
+
+.column {
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    float: left;
+}
+
+.probe {
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    background-color: #F1FF83;
+}
+
+.probe:after {
+    content: '\21E7';
+    font-weight: bold;
+    font-size: 45px;
+    display: block;
+    text-align: center;
+}
+
+.message {
+    color: green;
+    font-size: 18px;
+    font-weight: bold;
+}

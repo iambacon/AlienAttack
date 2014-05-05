@@ -30,6 +30,14 @@ namespace AlienAttack
         private const int MinUnitsX = 0;
         private const int MinUnitsY = 0;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Plotter"/> class.
+        /// </summary>
+        public Plotter()
+        {
+            this.Position = new Coordinate();
+        }
+
         #region Public Methods
         /// <summary>
         /// Increment position by one unit.
@@ -40,36 +48,58 @@ namespace AlienAttack
         }
 
         /// <summary>
+        /// Plots the move.
+        /// </summary>
+        /// <param name="move">The move.</param>
+        public void PlotMove(string move)
+        {
+            switch (move.ToUpper())
+            {
+                case "FORWARD":
+                    this.Forward();
+                    break;
+                case "LEFT":
+                    this.TurnLeft();
+                    break;
+                case "RIGHT":
+                    this.TurnRight();
+                    break;
+            }
+
+            if (this.Position.x < MinUnitsX || this.Position.x > MaxUnitsX)
+            {
+                throw new Exception("x position out of bounds");
+            }
+
+            if (this.Position.y < MinUnitsY || this.Position.y > MaxUnitsY)
+            {
+                throw new Exception("y position out of bounds");
+            }
+        }
+
+        /// <summary>
         /// Plots the moves.
         /// </summary>
         /// <param name="moves">The moves.</param>
-        public void PlotMoves(List<string> moves)
+        public List<Position> PlotMoves(List<string> moves)
         {
+            var positions = new List<Position>();
+
             foreach (var move in moves)
             {
-                switch (move)
+                this.PlotMove(move);
+                positions.Add(new Position
                 {
-                    case "FORWARD":
-                        this.Forward();
-                        break;
-                    case "LEFT":
-                        this.TurnLeft();
-                        break;
-                    case "RIGHT":
-                        this.TurnRight();
-                        break;
-                }
-
-                if (this.Position.x < MinUnitsX || this.Position.x > MaxUnitsX)
-                {
-                    throw new Exception("x position out of bounds");
-                }
-
-                if (this.Position.y < MinUnitsY || this.Position.y > MaxUnitsY)
-                {
-                    throw new Exception("y position out of bounds");
-                }
+                    Orientation = this.Orientation,
+                    Coordinate = new Coordinate
+                    {
+                        x = this.Position.x,
+                        y = this.Position.y
+                    }
+                });
             }
+
+            return positions;
         }
 
         /// <summary>

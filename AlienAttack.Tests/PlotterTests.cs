@@ -15,7 +15,7 @@ namespace AlienAttack.Tests
         [TestInitialize]
         public void Init()
         {
-            plotter = new Plotter { Position = new Coordinate(0, 1) };
+            plotter = new Plotter { Position = new Coordinate { x = 0, y = 1 } };
         }
 
         [TestMethod]
@@ -58,7 +58,7 @@ namespace AlienAttack.Tests
         public void PlotMoves_should_set_coordinates_x1_y2()
         {
             // Arrange
-            var expectedCoordinate = new Coordinate(1, 2);
+            var expectedCoordinate = new Coordinate { x = 1, y = 2 };
 
             var moves = new List<string>
             {
@@ -111,7 +111,7 @@ namespace AlienAttack.Tests
         {
             // Arrange
             const int expectedValue = 90;
-            plotter.Position = new Coordinate(1, 0);
+            plotter.Position = new Coordinate { x = 1, y = 0 };
 
             // Act
             plotter.CalculateOrientation("FORWARD");
@@ -130,7 +130,7 @@ namespace AlienAttack.Tests
             var data = JObject.Parse(json)["Directions"];
             var directions = JsonConvert.DeserializeObject<List<string>>(data.ToString());
 
-            plotter.Position = new Coordinate(0, 4);
+            plotter.Position = new Coordinate { x = 0, y = 4 };
             plotter.CalculateOrientation(directions.First());
 
             directions.RemoveAt(0);
